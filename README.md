@@ -1,6 +1,6 @@
-# Fit Agent Web
+# Well-being Agent
 
-个人训练、营养、身体指标和 HealthKit 导入追踪工具。
+Fit Agent Web 是一个个人 well-being agent，用来追踪训练、营养、身体指标和 HealthKit 导入数据。
 
 ## Local
 
