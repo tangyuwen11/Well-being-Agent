@@ -1,0 +1,844 @@
+:root {
+  color-scheme: light;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: #f5f7f2;
+  color: #101820;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background:
+    linear-gradient(180deg, rgba(16, 24, 32, 0.05), transparent 260px),
+    #f5f7f2;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  border: 0;
+}
+
+.appShell {
+  width: min(1180px, calc(100vw - 28px));
+  margin: 0 auto;
+  padding: 24px 0 40px;
+}
+
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+.brandMark {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+  place-items: center;
+  border-radius: 8px;
+  background: #101820;
+  color: #ddeb70;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+.brand h1 {
+  font-size: 1.35rem;
+  line-height: 1.1;
+}
+
+.brand p {
+  margin-top: 4px;
+  color: #5f6b6d;
+  font-size: 0.94rem;
+}
+
+.topActions,
+.tabs,
+.panelHeader,
+.panelTitle,
+.legend,
+.eyebrow {
+  display: flex;
+  align-items: center;
+}
+
+.topActions {
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.authPanel {
+  display: grid;
+  align-items: center;
+  min-height: 42px;
+  padding: 8px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: inset 0 0 0 1px rgba(16, 24, 32, 0.1);
+}
+
+.authPanel form,
+.authPanel.signedIn,
+.authPanel.offline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.authPanel input {
+  width: 150px;
+  min-height: 34px;
+  border: 1px solid #d9ded4;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #101820;
+  padding: 0 10px;
+}
+
+.authPanel .primaryButton {
+  min-height: 34px;
+  padding: 0 12px;
+}
+
+.authPanel small {
+  max-width: 210px;
+  color: #647173;
+  line-height: 1.35;
+}
+
+.authPanel b {
+  display: block;
+  max-width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.authMode {
+  display: inline-flex;
+  padding: 3px;
+  border-radius: 8px;
+  background: #eef1e9;
+}
+
+.authMode button {
+  min-height: 28px;
+  padding: 0 9px;
+  border-radius: 6px;
+  background: transparent;
+  color: #5f6b6d;
+  cursor: pointer;
+}
+
+.authMode .active {
+  background: #101820;
+  color: #ffffff;
+}
+
+.ghostButton,
+.primaryButton,
+.tabs button,
+.iconButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 42px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition:
+    transform 140ms ease,
+    background 140ms ease,
+    color 140ms ease,
+    box-shadow 140ms ease;
+}
+
+.ghostButton,
+.tabs button,
+.iconButton {
+  background: rgba(255, 255, 255, 0.72);
+  color: #243033;
+  box-shadow: inset 0 0 0 1px rgba(16, 24, 32, 0.1);
+}
+
+.ghostButton {
+  padding: 0 14px;
+}
+
+.primaryButton {
+  padding: 0 16px;
+  background: #101820;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.ghostButton:hover,
+.primaryButton:hover,
+.tabs button:hover,
+.iconButton:hover {
+  transform: translateY(-1px);
+}
+
+.tabs {
+  gap: 8px;
+  margin: 18px 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.tabs button {
+  min-width: 104px;
+  padding: 0 14px;
+  white-space: nowrap;
+}
+
+.tabs .active {
+  background: #101820;
+  color: #ffffff;
+  box-shadow: none;
+}
+
+.agentHero {
+  display: grid;
+  grid-template-columns: 1fr 180px;
+  gap: 24px;
+  align-items: center;
+  min-height: 246px;
+  padding: 28px;
+  border-radius: 8px;
+  background:
+    linear-gradient(125deg, rgba(16, 24, 32, 0.94), rgba(28, 53, 55, 0.88)),
+    url("data:image/svg+xml,%3Csvg width='900' height='360' viewBox='0 0 900 360' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 230 C110 160 170 170 250 235 C340 308 420 276 500 194 C604 88 682 82 780 152 C820 181 850 195 890 185' fill='none' stroke='%23DDEB70' stroke-width='7' stroke-linecap='round' opacity='.72'/%3E%3Cpath d='M25 282 C140 246 238 266 333 214 C431 161 481 114 590 128 C708 142 752 232 884 226' fill='none' stroke='%233BA99C' stroke-width='5' stroke-linecap='round' opacity='.72'/%3E%3Ccircle cx='175' cy='120' r='44' fill='%23F26D5B' opacity='.9'/%3E%3Ccircle cx='736' cy='82' r='26' fill='%23DDEB70' opacity='.9'/%3E%3C/svg%3E");
+  background-position: center;
+  background-size: cover;
+  color: white;
+  overflow: hidden;
+}
+
+.agentCopy {
+  max-width: 660px;
+}
+
+.eyebrow {
+  gap: 8px;
+  width: fit-content;
+  margin-bottom: 16px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #ddeb70;
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.agentHero h2 {
+  max-width: 15ch;
+  font-size: clamp(2rem, 6vw, 4rem);
+  line-height: 0.96;
+  letter-spacing: 0;
+}
+
+.agentHero p {
+  max-width: 560px;
+  margin-top: 16px;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.readinessDial {
+  display: grid;
+  width: 170px;
+  height: 170px;
+  place-items: center;
+  border: 12px solid rgba(221, 235, 112, 0.85);
+  border-right-color: #3ba99c;
+  border-bottom-color: #f26d5b;
+  border-radius: 50%;
+  background: rgba(16, 24, 32, 0.5);
+}
+
+.readinessDial span {
+  font-size: 3.15rem;
+  line-height: 1;
+  font-weight: 800;
+}
+
+.readinessDial small {
+  margin-top: -42px;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.dashboard,
+.recordGrid,
+.historyGrid {
+  display: grid;
+  gap: 16px;
+}
+
+.metricGrid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.metric,
+.panel {
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow:
+    0 18px 50px rgba(16, 24, 32, 0.08),
+    inset 0 0 0 1px rgba(16, 24, 32, 0.08);
+}
+
+.metric {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  min-height: 118px;
+  padding: 18px;
+}
+
+.metric svg {
+  color: #3b799c;
+  flex: 0 0 auto;
+}
+
+.metric span,
+.metric small {
+  display: block;
+  color: #647173;
+}
+
+.metric strong {
+  display: block;
+  margin: 7px 0 4px;
+  font-size: 1.55rem;
+  line-height: 1.05;
+}
+
+.dashboardGrid,
+.recordGrid,
+.historyGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.bodyStats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.panel {
+  padding: 18px;
+}
+
+.panelHeader {
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.panelTitle {
+  gap: 9px;
+  color: #243033;
+}
+
+.panelTitle h2 {
+  font-size: 1.03rem;
+}
+
+.progressRow + .progressRow {
+  margin-top: 17px;
+}
+
+.progressCopy {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+  color: #5f6b6d;
+}
+
+.progressCopy b {
+  color: #101820;
+}
+
+.track {
+  height: 11px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #e5e9df;
+}
+
+.track span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #3ba99c, #ddeb70);
+}
+
+.bars {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(30px, 1fr));
+  gap: 10px;
+  height: 220px;
+  align-items: end;
+}
+
+.barDay {
+  display: grid;
+  grid-template-rows: 1fr 22px;
+  gap: 8px;
+  height: 100%;
+  min-width: 0;
+  text-align: center;
+}
+
+.barStack {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  gap: 4px;
+  height: 100%;
+  padding: 8px 3px 0;
+  border-radius: 8px;
+  background: #eef1e9;
+}
+
+.bar {
+  width: min(18px, 38%);
+  min-height: 4px;
+  border-radius: 999px 999px 4px 4px;
+}
+
+.workoutBar {
+  background: #3b799c;
+}
+
+.proteinBar {
+  background: #f26d5b;
+}
+
+.barDay small,
+.legend {
+  color: #697577;
+  font-size: 0.82rem;
+}
+
+.legend {
+  gap: 16px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.legend i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.workoutDot {
+  background: #3b799c;
+}
+
+.proteinDot {
+  background: #f26d5b;
+}
+
+.insightList {
+  display: grid;
+  gap: 10px;
+}
+
+.insight {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: 10px;
+  padding: 14px;
+  border-radius: 8px;
+  background: #f8faf4;
+  box-shadow: inset 0 0 0 1px rgba(16, 24, 32, 0.08);
+}
+
+.insight h3 {
+  margin-bottom: 5px;
+  font-size: 0.98rem;
+}
+
+.insight p {
+  color: #5d696b;
+  line-height: 1.58;
+}
+
+.insight.good svg {
+  color: #3ba99c;
+}
+
+.insight.watch svg {
+  color: #bb7a1f;
+}
+
+.insight.alert svg {
+  color: #d34b38;
+}
+
+.entryForm {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.entryForm label {
+  display: grid;
+  gap: 7px;
+  min-width: 0;
+  color: #5f6b6d;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.entryForm input,
+.entryForm select {
+  width: 100%;
+  min-height: 42px;
+  border: 1px solid #d9ded4;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #101820;
+  padding: 0 11px;
+}
+
+.entryForm input[type="file"] {
+  padding: 9px 11px;
+}
+
+.entryForm input[type="range"] {
+  padding: 0;
+  accent-color: #3ba99c;
+}
+
+.entryForm .wide {
+  grid-column: span 2;
+}
+
+.entryForm .primaryButton {
+  align-self: end;
+}
+
+.photoAgent {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.9fr) minmax(240px, 1.1fr);
+  gap: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  background: #f8faf4;
+  box-shadow: inset 0 0 0 1px rgba(16, 24, 32, 0.08);
+}
+
+.entryForm .photoAgent {
+  grid-column: 1 / -1;
+}
+
+.photoDrop {
+  position: relative;
+  display: grid;
+  min-height: 220px;
+  place-items: center;
+  overflow: hidden;
+  border: 1px dashed #9fb2aa;
+  border-radius: 8px;
+  background: #eef1e9;
+  color: #243033;
+  cursor: pointer;
+}
+
+.photoDrop span {
+  display: grid;
+  gap: 10px;
+  place-items: center;
+  font-weight: 800;
+}
+
+.photoDrop img {
+  width: 100%;
+  height: 100%;
+  max-height: 320px;
+  object-fit: cover;
+}
+
+.photoDrop input {
+  display: none;
+}
+
+.agentControls {
+  display: grid;
+  align-content: center;
+  gap: 12px;
+}
+
+.agentControls small {
+  color: #5f6b6d;
+  line-height: 1.55;
+}
+
+.goalsForm {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.syncPanel {
+  display: grid;
+  gap: 14px;
+}
+
+.syncPanel p,
+.syncPanel small {
+  color: #5f6b6d;
+  line-height: 1.65;
+}
+
+.fileDrop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 118px;
+  border: 1px dashed #9fb2aa;
+  border-radius: 8px;
+  background: #f8faf4;
+  color: #243033;
+  cursor: pointer;
+  font-weight: 800;
+}
+
+.fileDrop input {
+  display: none;
+}
+
+.routeList {
+  display: grid;
+  gap: 9px;
+}
+
+.routeList span {
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #f8faf4;
+  color: #243033;
+  box-shadow: inset 0 0 0 1px rgba(16, 24, 32, 0.08);
+}
+
+.logList {
+  display: grid;
+  gap: 10px;
+  max-height: 520px;
+  overflow: auto;
+  padding-right: 4px;
+}
+
+.logItem {
+  display: grid;
+  grid-template-columns: 1fr 42px;
+  align-items: center;
+  gap: 12px;
+  min-height: 76px;
+  padding: 12px;
+  border-radius: 8px;
+  background: #f9faf6;
+  box-shadow: inset 0 0 0 1px rgba(16, 24, 32, 0.08);
+}
+
+.logItem b,
+.logItem span,
+.logItem small {
+  display: block;
+}
+
+.logItem span,
+.logItem small,
+.empty {
+  color: #647173;
+  line-height: 1.5;
+}
+
+.logItem small {
+  margin-top: 4px;
+}
+
+.iconButton {
+  width: 42px;
+  height: 42px;
+  padding: 0;
+}
+
+.iconButton:hover {
+  color: #d34b38;
+}
+
+.empty {
+  padding: 18px 0 4px;
+}
+
+@media (max-width: 900px) {
+  .topBar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .topActions {
+    justify-content: flex-start;
+  }
+
+  .authPanel,
+  .authPanel form,
+  .authPanel.signedIn,
+  .authPanel.offline {
+    width: 100%;
+  }
+
+  .authPanel form {
+    flex-wrap: wrap;
+  }
+
+  .authPanel input {
+    flex: 1 1 150px;
+  }
+
+  .agentHero,
+  .dashboardGrid,
+  .recordGrid,
+  .historyGrid,
+  .photoAgent {
+    grid-template-columns: 1fr;
+  }
+
+  .agentHero {
+    min-height: 0;
+  }
+
+  .readinessDial {
+    justify-self: start;
+  }
+
+  .metricGrid,
+  .bodyStats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .entryForm,
+  .goalsForm {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .appShell {
+    width: min(100vw - 18px, 1180px);
+    padding-top: 12px;
+  }
+
+  .brandMark {
+    width: 42px;
+    height: 42px;
+    flex-basis: 42px;
+  }
+
+  .agentHero {
+    padding: 20px;
+  }
+
+  .agentHero h2 {
+    font-size: 2.4rem;
+  }
+
+  .agentHero p {
+    max-width: 30ch;
+  }
+
+  .readinessDial {
+    width: 132px;
+    height: 132px;
+    border-width: 9px;
+  }
+
+  .readinessDial span {
+    font-size: 2.35rem;
+  }
+
+  .readinessDial small {
+    margin-top: -32px;
+  }
+
+  .metricGrid,
+  .bodyStats,
+  .entryForm,
+  .goalsForm {
+    grid-template-columns: 1fr;
+  }
+
+  .entryForm .wide {
+    grid-column: span 1;
+  }
+
+  .photoDrop {
+    min-height: 180px;
+  }
+
+  .tabs button {
+    min-width: 92px;
+  }
+
+  .bars {
+    gap: 6px;
+  }
+
+  .panel,
+  .metric {
+    padding: 14px;
+  }
+}
